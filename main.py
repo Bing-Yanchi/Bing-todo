@@ -36,7 +36,6 @@ def data_add(name,description,mode):
 	with open('data.json','w',encoding='UTF-8') as file:
 		# write
 		json.dump(load_data,file,ensure_ascii=False)
-
 # welcome
 print(language.get('msg#0'))
 print()
