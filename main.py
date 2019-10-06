@@ -47,6 +47,10 @@ def data_read():
 			description = load_data[i]['description']
 			mode = load_data[i]['mode']
 			print(name,description,mode)
+def remove():
+	# remove
+	# ask
+	del_time = input(language.get('msg#15'))
 # welcome
 print(language.get('msg#0'))
 print()
@@ -103,6 +107,9 @@ while True:
 	elif command == 'list':
 		# list
 		data_read()
+	elif command == 'remove':
+		# remove
+		remove()
 	else:
 		# unknown
 		print(language.get('Error') + " » " + language.get('Unknown'))
