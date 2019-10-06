@@ -1,3 +1,4 @@
+# initialization
 # import
 import time,yaml,json
 # language
@@ -36,6 +37,16 @@ def data_add(name,description,mode):
 	with open('data.json','w',encoding='UTF-8') as file:
 		# write
 		json.dump(load_data,file,ensure_ascii=False)
+def data_read():
+	# read data
+	with open('data.json','r',encoding='UTF-8') as f:
+		# read
+		load_data = json.load(f)
+		for i in range(len(load_data)):
+			name = load_data[i]['name']
+			description = load_data[i]['description']
+			mode = load_data[i]['mode']
+			print(name,description,mode)
 # welcome
 print(language.get('msg#0'))
 print()
@@ -53,6 +64,7 @@ else:
 	print(language.get('Warn') + " » " + language.get('msg#5'))
 print()
 # main
+# go
 while True:
 	# input
 	command = input(language.get('Input') + " » ")
@@ -88,6 +100,9 @@ while True:
 		name,description,mode = create()
 		data_add(name,description,mode)
 		print(language.get('msg#14'))
+	elif command == 'list':
+		# list
+		data_read()
 	else:
 		# unknown
 		print(language.get('Error') + " » " + language.get('Unknown'))
